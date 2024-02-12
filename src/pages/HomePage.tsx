@@ -20,6 +20,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Contact } from "@/components/Contact";
+import { Footer } from "@/components/Footer";
 
 export const HomePage = (props: {
   data: PageQuery;
@@ -124,17 +125,22 @@ export const HomePage = (props: {
             ))} 
           </div>
         </div>
-        <div className="py-24">
+        <div className="py-24 relative z-10">
           <div className="text-white font-bold text-[48px] pb-5">
             Contact
           </div>
           <Contact data={homePageData}/>
         </div>
-        <div className="pt-24">
+        <div className="relative z-10 ">
+          <Footer data={homePageData}/>
+        </div>
+        
+        <div className="pt-[24px]">
           <div className="absolute bottom-0">
-              <Image src={bggradient} alt="alt" className="object-cover h-full mt-[3.75rem] lg:ml-[-5rem] z-10 rotate-180"/>
+              <Image src={bggradient} alt="alt" className="object-cover h-full mt-[3.75rem] lg:ml-[-5rem] -z-10 rotate-180" style={{ pointerEvents: 'none' }}/>
           </div>
         </div>
+        
       </div>
     </div>
   );

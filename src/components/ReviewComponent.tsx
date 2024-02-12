@@ -31,7 +31,7 @@ export const ReviewComponent = (props: {
 
         <div className="relative flex py-5 items-center justify-center">
           <div className="border-t border-2 w-1/5 border-stroke"></div>
-      </div>
+        </div>
 
         <div className="p-5 text-primaryText text-[16px] text-center font-medium px-10">
           <TinaMarkdown content={data.reviews?.description}/>

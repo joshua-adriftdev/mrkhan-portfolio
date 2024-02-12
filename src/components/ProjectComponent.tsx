@@ -17,8 +17,6 @@ export const ProjectComponent = (props: {
 
   const { data } = props;
 
-  console.log(JSON.stringify(data));
-
   const imageUrl = data.project?.image?.at(0) ?? "/default-image.webp";
   const imageUrl2 = data.project?.image?.at(1) ?? "/default-image.webp";
 
