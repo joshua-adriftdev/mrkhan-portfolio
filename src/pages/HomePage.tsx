@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
+import { ViewProjectsButton } from "@/components/ViewProjectsButton";
 
 export const HomePage = (props: {
   data: PageQuery;
@@ -100,6 +101,7 @@ export const HomePage = (props: {
           {projectData.map((project, index) => (
             <ProjectComponent key={index} data={project} />
           ))}
+          <ViewProjectsButton data={homePageData}/>
         </div>
         <div className="py-5">
           <div className="text-white font-bold text-[48px] pb-5">
@@ -112,7 +114,7 @@ export const HomePage = (props: {
             Reviews
           </div>
           {/* Default */}
-          <Carousel placeholder={undefined} className="pb-10 xl:hidden">
+          <Carousel className="pb-10 xl:hidden">
               {reviewData.map((review, index) => (
                   <ReviewComponent key={index} data={review} />
               ))} 
@@ -131,7 +133,7 @@ export const HomePage = (props: {
           </div>
           <Contact data={homePageData}/>
         </div>
-        <div className="relative z-10 ">
+        <div className="relative z-10">
           <Footer data={homePageData}/>
         </div>
         

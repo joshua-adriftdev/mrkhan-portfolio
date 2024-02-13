@@ -124,6 +124,11 @@ export default defineConfig({
             type: 'rich-text',
           },
           {
+            name: 'details',
+            label: 'Details',
+            type: 'rich-text',
+          },
+          {
             name: 'image',
             label: 'Image',
             type: 'image',
@@ -158,9 +163,44 @@ export default defineConfig({
             label: 'Description',
             type: 'rich-text',
           },
+          {
+            name: 'discord',
+            label: 'Discord',
+            type: 'string',
+          },
           
         ]
+      },
+      {
+        name: "projectPage",
+        label: "Project Page",
+        path: "content/projectpage",
+        format: 'json',
+        fields: [
+          {
+            name: 'title',
+            label: 'Title',
+            type: 'string',
+          },
+          {
+            name: 'userImage',
+            label: 'User Image',
+            type: 'image',
+          },
+          {
+            name: 'aboutme',
+            label: 'About Me',
+            type: 'rich-text',
+          },
+          {
+            name: 'projects',
+            label: 'Projects',
+            type: 'string',
+            list: true
+          },
+        ]
       }
+
     ],
   },
 });

@@ -11,7 +11,7 @@ export const ClientVideos = (props: {
 }) => {
   return (
     <div className="">
-      <Carousel placeholder={undefined} className="rounded-[16px] xl:hidden">
+      <Carousel className="rounded-[16px] xl:hidden">
             {props.data.page?.videos?.map((video, index) => (
                 <div className="aspect-w-16 aspect-h-9">
                     <iframe src={video ?? ""} allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen={true}></iframe>
