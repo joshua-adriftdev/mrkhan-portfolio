@@ -15,6 +15,13 @@ export const Hero = (props: {
 
   const imageURL = props.data.page?.userImage ?? "/default-image.webp"
 
+  const scrollToSection = (sectionId: string) => {
+    const targetSection = document.getElementById(sectionId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
   return (
     <div className="">
         <Image src={bggradient} alt="alt" className="lg:scale-100 absolute z-0"/>
@@ -26,7 +33,9 @@ export const Hero = (props: {
                   <TinaMarkdown content={props.data.page?.aboutme}/>
               </div>
               <div className="flex flex-row gap-3 mt-10">
-                  <Button variant="gradient" color="gray" size="lg">Contact</Button>
+                  <Button variant="gradient" color="gray" size="lg" onClick={() => {
+                    scrollToSection("contact");
+                  }}>Contact</Button>
                   <Button variant="gradient" color="gray" size="lg" className="text-primaryText" onClick={() => {
                       push("/projects");
                   }}>View My Work</Button>

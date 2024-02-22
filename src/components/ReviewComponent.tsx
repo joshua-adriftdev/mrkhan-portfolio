@@ -35,7 +35,7 @@ export const ReviewComponent = (props: {
         <div className="p-5 text-primaryText text-[16px] text-center font-medium px-10">
           <TinaMarkdown content={data.reviews?.description}/>
         </div>
-        <div className="px-5 py-5 pb-5 flex flex-row items-center justify-center h-full gap-2">
+        <div className="px-5 py-5 pb-5 flex-row items-center justify-center h-full gap-2 hidden">
           <FontAwesomeIcon icon={faStar} size="lg"/>
           <FontAwesomeIcon icon={faStar} size="lg"/>
           <FontAwesomeIcon icon={faStar} size="lg"/>

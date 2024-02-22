@@ -25,7 +25,10 @@ export const ProjectHero = (props: {
                   <TinaMarkdown content={props.data.projectPage?.aboutme}/>
               </div>
               <div className="flex flex-row gap-3 mt-10">
-                  <Button variant="gradient" color="gray" size="lg">Contact</Button>
+                  <Button variant="gradient" color="gray" size="lg" onClick={() => {
+                    push("/");
+                    push("/#contact")
+                  }}>Contact</Button>
                   <Button variant="gradient" color="gray" size="lg" className="text-primaryText" onClick={() => {
                     push("/")
                   }}>Return Home</Button>

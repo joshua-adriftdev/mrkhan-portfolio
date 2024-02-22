@@ -34,6 +34,19 @@ export const HomePage = (props: {
     variables: props.variables,
   });
 
+  useEffect(() => {
+    const scrollToContact = () => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    // Introduce a delay (e.g., 100ms) before scrolling
+    const delay = 100;
+    setTimeout(scrollToContact, delay);
+  }, []);
+
   const [projectData, setProjectData] = useState<ProjectQuery[]>([]);
   const [reviewData, setReviewData] = useState<ReviewsQuery[]>([]);
 
@@ -89,6 +102,15 @@ export const HomePage = (props: {
     fetchReviewData();
   }, []);
 
+  // Calculate the number of reviews per page
+  const reviewsPerPage = 3;
+
+  // Organize reviews into subarrays
+  const groupedReviews = [];
+  for (let i = 0; i < reviewData.length; i += reviewsPerPage) {
+    groupedReviews.push(reviewData.slice(i, i + reviewsPerPage));
+  }
+
   return (
     <div className="relative h-full bg-primaryBackground">
       <Hero data={homePageData} />
@@ -121,14 +143,18 @@ export const HomePage = (props: {
           </Carousel>
 
           {/* lg */}
-          <div className="flex-row gap-10 hidden xl:flex">
-            {reviewData.map((review, index) => (
-                <ReviewComponent key={index} data={review} />
-            ))} 
-          </div>
+          <Carousel className="hidden xl:flex">
+            {groupedReviews.map((pageReviews, pageIndex) => (
+              <div key={pageIndex} className="flex flex-row gap-10">
+                {pageReviews.map((review, index) => (
+                  <ReviewComponent key={index} data={review} />
+                ))}
+              </div>
+            ))}
+          </Carousel>
         </div>
         <div className="py-24 relative z-10">
-          <div className="text-white font-bold text-[48px] pb-5">
+          <div className="text-white font-bold text-[48px] pb-5" id="contact">
             Contact
           </div>
           <Contact data={homePageData}/>
